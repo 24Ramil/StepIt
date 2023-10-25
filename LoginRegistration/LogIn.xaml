@@ -1,0 +1,86 @@
+﻿<Window x:Class="Login_Registration.Wpf.LogIn"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Login_Registration.Wpf"
+        mc:Ignorable="d"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        Title="LogIn" Height="700" Width="600" MinWidth="550" 
+MinHeight="650"
+MaxHeight="750" 
+MaxWidth="700">
+
+    <Grid Background="#7393B3">
+
+        <StackPanel>
+            <TextBlock 
+                Text="Welcome!"
+                FontWeight="DemiBold"
+                Margin="5"
+                HorizontalAlignment="Center"
+                FontSize="35"
+            />
+
+           <Label
+                Content="Login" 
+                Background="#256d7b"
+                FontSize="35" 
+                FontWeight="Bold"
+                HorizontalAlignment="Center"
+                Margin="30 20 20 25"
+            />
+
+            <TextBox
+                 x:Name="L_LoginTextBox"
+                 FontSize="30"
+                 Margin="80 30 80 0"
+                 materialDesign:HintAssist.Hint="Login"
+                 Background="white"
+             />
+            
+             <TextBox
+                 x:Name= "L_PasswordTextBox"
+                 FontSize="30"
+                 Margin="80 40 80 0"
+                 materialDesign:HintAssist.Hint="Password"
+                 Background="white"
+             />
+
+            <!--x:Name="ForgoutPassword"-->
+            <!--Click="Button_Forgout_Password_Click"-->
+            <Button
+                Click="Button_Forgout_Password_Click"
+                Content="Forgot Password"
+                FontSize="20"
+                Margin="310 20 60 60"
+                Height="35"
+                Background="#7393B3"
+                Foreground="BlueViolet"
+            />
+            <Button
+                Click="RegisterButton_Click"
+                x:Name="RegisterButton"
+                Content="Register"
+                FontSize="20"
+                Margin="90 -95 390 60"
+                Height="35"
+                Background="BlueViolet"
+                Foreground="Azure"
+            />
+
+            <Button
+                Click="LogInButton_Click"
+                x:Name="LogInButton"
+                Content="Continue"
+                Margin="40 50 40 60"
+                FontSize="30"
+                Height="50"
+                Background="Green"
+            />
+
+
+        </StackPanel>
+
+    </Grid>
+</Window>
