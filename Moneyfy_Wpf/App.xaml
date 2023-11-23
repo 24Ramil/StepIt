@@ -1,0 +1,37 @@
+﻿<Application x:Class="Moneyfly_WPF.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:Moneyfly_WPF"
+             xmlns:Views="clr-namespace:Moneyfly_WPF.Views" 
+             xmlns:ViewModel="clr-namespace:Moneyfly_WPF.ViewModels"
+             >
+
+    <Application.Resources>
+        <ResourceDictionary>
+
+            <DataTemplate DataType="{x:Type ViewModel:MainViewModel}">
+                <Views:MainView></Views:MainView>                
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type ViewModel:IncomeViewModel}">
+                <Views:IncomeView></Views:IncomeView>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type ViewModel:PieChartViewModel}">
+                <Views:PieChartView/>
+            </DataTemplate> 
+            <DataTemplate DataType="{x:Type ViewModel:ExpenceViewModel}">
+                <Views:ExpenceView/>
+            </DataTemplate>
+            
+            
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Light.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Primary/MaterialDesignColor.DeepPurple.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Accent/MaterialDesignColor.Lime.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+        
+    </Application.Resources>
+</Application>
