@@ -1,39 +1,41 @@
-﻿using GalaSoft.MvvmLight;
-using Moneyfly_WPF.Views;
+﻿
+using Moneyfy_ProjectWork.Service.Classes;
+using Moneyfy_ProjectWork.Service.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Input;
-using Moneyfly_WPF.Services.Interfaces;
 using GalaSoft.MvvmLight.Command;
+using System.Windows.Media;
 
-namespace Moneyfly_WPF.ViewModels
+namespace Moneyfy_ProjectWork.ViewModels
 {
-    public class ExpenceViewModel:ViewModelBase
+    public class ExpenceViewModel : GalaSoft.MvvmLight.ViewModelBase
     {
-        private readonly INavigationService navigationService;
+        private double _expenseAmount;
+        public INavigationService _navigationService;
+        public double ExpenseAmount
+        {
+            get => _expenseAmount;
+            set => Set(ref _expenseAmount, value);
+        }
 
         public ExpenceViewModel(INavigationService navigationService)
         {
-            this.navigationService = navigationService;
-            OpenExpenseCommand = new RelayCommand(OpenExpense);
+            _navigationService = navigationService;
         }
 
-        public ICommand OpenExpenseCommand { get; }
+        //public ButtonComand BackToMainCommand
+        //{
+        //    get => new(() =>
+        //    {
+        //        _navigationService.NavigateTo<MainViewModel>();
+        //    });
 
-        internal void OpenExpence()
-        {
-            throw new NotImplementedException();
-        }
+        //}
 
-        private void OpenExpense()
-        {
-            navigationService.NavigateTo<MainViewModel>();
-        }
-
-
-        
     }
+
+
 }

@@ -1,7 +1,4 @@
-﻿using LiveCharts;
-using LiveCharts.Wpf;
-using Moneyfly_WPF.ViewModels;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,32 +13,17 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Moneyfly_WPF.Views
+namespace Moneyfy_ProjectWork.Views
 {
-    public partial class PieChartView : UserControl
+    /// <summary>
+    /// Interaction logic for PieChartViewxaml.xaml
+    /// </summary>
+    public partial class PieChartViewxaml : UserControl
     {
-        private PieChartViewModel mainViewModel;
-
-        public PieChartView(PieChartView mainViewModel)
+        public PieChartViewxaml()
         {
             InitializeComponent();
         }
 
-        
-
-        private void SilverwareForkKnife_btn(object sender, RoutedEventArgs e)
-        {
-            
-        }
-
-        private void Expence_Btn(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        internal void ShowDialog()
-        {
-            throw new NotImplementedException();
-        }
     }
 }

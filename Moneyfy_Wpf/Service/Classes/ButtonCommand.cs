@@ -5,9 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 
-namespace Moneyfly_WPF.Services.Classes
+namespace Moneyfy_ProjectWork.Service.Classes
 {
-    class ButtonComand:ICommand
+    class ButtonComand : ICommand
     {
         private readonly Action _funcToExecute;
         private readonly Func<bool> _funcToCheck = () => true;

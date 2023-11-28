@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Moneyfly_WPF.Services.Interfaces
+namespace Moneyfy_ProjectWork.Service.Interfaces
 {
-    interface IChartService
+    interface IJsonService
     {
+        public T Deserialize<T>(string json);
     }
 }

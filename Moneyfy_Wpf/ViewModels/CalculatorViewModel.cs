@@ -1,19 +1,14 @@
-﻿using GalaSoft.MvvmLight; 
-using GalaSoft.MvvmLight.Command; 
-using Moneyfly_WPF.Services.Interfaces;
-using System.Text; 
-using System.Windows.Controls; 
-using MaterialDesignThemes.Wpf; 
-using GalaSoft.MvvmLight.Messaging; 
-using LiveCharts.Wpf; 
-using Moneyfly_WPF.Models;
-using LiveCharts; 
-using System.Windows.Media;
-using Moneyfly_WPF.Services.Classes;
-using Moneyfly_WPF.Message;
-using Moneyfly_WPF.ViewModels;
+﻿using GalaSoft.MvvmLight;
+using GalaSoft.MvvmLight.Command;
+using MaterialDesignThemes.Wpf;
+using Moneyfy_ProjectWork.Service.Interfaces;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace Monefy.ViewModels
+namespace Moneyfy_ProjectWork.ViewModels
 {
     class CalculatorViewModel : ViewModelBase
     {
@@ -52,7 +47,7 @@ namespace Monefy.ViewModels
             }
         }
 
-        
+
         public RelayCommand<string> numClick
         {
             get => new((operation) =>
@@ -106,5 +101,4 @@ namespace Monefy.ViewModels
 
 
     }
-
 }

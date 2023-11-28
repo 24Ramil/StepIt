@@ -5,10 +5,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Moneyfly_WPF.ViewModels
+namespace Moneyfy_ProjectWork.ViewModels
 {
-    class IncomeViewModel : ViewModelBase
+    public class IncomeViewModel : ViewModelBase
     {
+        private double _incomeAmount;
+        public double IncomeAmount
+        {
+            get => _incomeAmount;
+            set => Set(ref _incomeAmount, value);
+        }
 
     }
+
 }

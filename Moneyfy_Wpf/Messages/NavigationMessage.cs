@@ -5,11 +5,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Moneyfly_WPF.Message
+namespace Moneyfy_ProjectWork.Messages
 {
-    class NavigationMessage
+    public class NavigationMessage
     {
+        public Type Data { get; set; }
         public ViewModelBase ViewModelType { get; set; }
-
     }
 }

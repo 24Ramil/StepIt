@@ -1,4 +1,4 @@
-﻿using Moneyfly_WPF.Services.Interfaces;
+﻿using Moneyfy_ProjectWork.Service.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,7 +6,7 @@ using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
 
-namespace Moneyfly_WPF.Services.Classes
+namespace Moneyfy_ProjectWork.Service.Classes
 {
     class JsonService : IJsonService
     {

@@ -1,37 +1,40 @@
-﻿using GalaSoft.MvvmLight.Messaging;
-using MaterialDesignThemes.Wpf;
-using Monefy.ViewModels;
-using Moneyfly_WPF.Services.Classes;
-using Moneyfly_WPF.Services.Interfaces;
-using Moneyfly_WPF.ViewModels;
-using Moneyfly_WPF.Views;
+﻿using Moneyfy_ProjectWork.ViewModels;
+using System;
+using System.Collections.Generic;
 using SimpleInjector;
+using System.Configuration;
+using System.Data;
+using System.Linq;
+using System.Threading.Tasks;
 using System.Windows;
+using GalaSoft.MvvmLight.Messaging;
+using Moneyfy_ProjectWork.Views;
+using Moneyfy_ProjectWork.Service.Interfaces;
+using Moneyfy_ProjectWork.Service.Classes;
 
-namespace Moneyfly_WPF
+namespace Moneyfy_ProjectWork
 {
     public partial class App : Application
     {
-        public static Container Container { get; set; } = new();
+        public static Container Container { get; set; } = new Container();
+
 
         public void Register()
         {
-            Container.RegisterSingleton<IJsonService, JsonService>();
             Container.RegisterSingleton<IMessenger, Messenger>();
             Container.RegisterSingleton<INavigationService, NavigationService>();
             Container.RegisterSingleton<IDataService, DataService>();
+            //Container.RegisterSingleton<IChart, ChartService>();
+
 
             Container.RegisterSingleton<MainViewModel>();
             Container.RegisterSingleton<PieChartViewModel>();
-            Container.RegisterSingleton<CalculatorViewModel>();
             Container.RegisterSingleton<IncomeViewModel>();
             Container.RegisterSingleton<ExpenceViewModel>();
 
-            Container.Verify();
         }
 
-
-        protected override void OnStartup(StartupEventArgs e) 
+        protected override void OnStartup(StartupEventArgs e)
         {
             Register();
 
@@ -44,6 +47,5 @@ namespace Moneyfly_WPF
 
 
     }
-
 
 }

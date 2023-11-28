@@ -4,12 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Moneyfly_WPF.Message
+namespace Moneyfy_ProjectWork.Enums
 {
-    class DataMessage
+    public enum Income
     {
-        public object Data { get; set; }
-    
+        Salary,
+        Investments,
     }
-
 }

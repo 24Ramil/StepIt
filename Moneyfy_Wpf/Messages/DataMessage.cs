@@ -4,10 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Moneyfly_WPF.Services.Interfaces
+namespace Moneyfy_ProjectWork.Messages
 {
-    interface IDataService
+    public class DataMessage
     {
-        public void SendData(object data);
+        public object Data { get; set; }
     }
+
 }
