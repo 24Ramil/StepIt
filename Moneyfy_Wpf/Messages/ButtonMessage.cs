@@ -1,14 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using MonefyApp.Models;
+using System.Windows.Controls;
+
 namespace MonefyApp.Messages
 {
-    class DataMessage
+    class ButtonMessage
     {
-        public object Data { get; set; }
+        public Button Data { get; set; }
     }
 }

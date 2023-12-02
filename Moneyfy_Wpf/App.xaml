@@ -1,38 +1,31 @@
-﻿<Application x:Class="Moneyfy_ProjectWork.App"
+﻿<Application x:Class="MonefyApp.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:Moneyfy_ProjectWork"
-             xmlns:Views="clr-namespace:Moneyfy_ProjectWork.Views"
-             xmlns:ViewModels="clr-namespace:Moneyfy_ProjectWork.ViewModels">
-    
+             xmlns:local="clr-namespace:MonefyApp"
+             xmlns:view="clr-namespace:MonefyApp.View"
+             xmlns:viewModel="clr-namespace:MonefyApp.ViewModels"
+             >
     <Application.Resources>
         <ResourceDictionary>
 
-            <DataTemplate DataType="{x:Type ViewModels:MainViewModel}">
-                <Views:MainView/>
+            <DataTemplate DataType="{x:Type viewModel:CalculatorViewModel}">
+                <view:CalculatorView/>
             </DataTemplate>
-            
-            <DataTemplate DataType="{x:Type ViewModels:PieChartViewModel}">
-                <Views:PieChartViewxaml/>
+
+            <DataTemplate DataType="{x:Type viewModel:MainWindowModel}">
+                <view:MainWindow/>
             </DataTemplate>
-            
-            <DataTemplate DataType="{x:Type ViewModels:ExpenceViewModel}">
-                <Views:ExpenceView/>
+
+            <DataTemplate DataType="{x:Type viewModel:DiagramViewModel}">
+                <view:DiagramView/>
             </DataTemplate>
-            
-            <DataTemplate DataType="{x:Type ViewModels:IncomeViewModel}">
-                <Views:IncomeView/>
+
+            <DataTemplate DataType="{x:Type viewModel:MenuLeftViewModel}">
+                <view:MenuLeftView/>
             </DataTemplate>
 
 
-
-            <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Light.xaml" />
-                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />
-                <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Primary/MaterialDesignColor.DeepPurple.xaml" />
-                <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Accent/MaterialDesignColor.Lime.xaml" />
-            </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
-
     </Application.Resources>
+
 </Application>

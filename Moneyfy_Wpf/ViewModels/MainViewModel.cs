@@ -1,42 +1,78 @@
-﻿using System;
+﻿using GalaSoft.MvvmLight;
+using GalaSoft.MvvmLight.Command;
+using GalaSoft.MvvmLight.Messaging;
+using LiveCharts;
+using LiveCharts.Wpf;
+using MonefyApp.Messages;
+using MonefyApp.Models;
+using MonefyApp.Service.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
-using System.ComponentModel;
-using Moneyfy_ProjectWork.ViewModels;
-using GalaSoft.MvvmLight;
-using Moneyfy_ProjectWork.Messages;
-using GalaSoft.MvvmLight.Messaging;
+using System.Windows.Controls;
+using System.Windows.Media;
 
-namespace Moneyfy_ProjectWork.ViewModels;
-
-public class MainViewModel : ViewModelBase
+namespace MonefyApp.ViewModels
 {
-    private readonly IMessenger _messenger;
-
-
-    private ViewModelBase _currentView;
-    public ViewModelBase CurrentView
+    class MainWindowModel : ViewModelBase
     {
-        get => _currentView;
-        set
+        private ViewModelBase _currentView;
+        public ViewModelBase CurrentView
         {
-            Set(ref _currentView, value);
+            get => _currentView;
+            set
+            {
+                Set(ref _currentView, value);
+            }
         }
-    }
+        private readonly IJsonService _jsonService;
 
-    public MainViewModel(IMessenger messenger)
-    {
-        _messenger = messenger;
-        CurrentView = App.Container.GetInstance<PieChartViewModel>();
-
-        _messenger.Register<NavigationMessage>(this, message =>
+        public MainWindowModel( IMessenger _messenger,IJsonService jsonService)
         {
-            CurrentView = message.ViewModelType;
-        });
+            CurrentView = App.Container.GetInstance<DiagramViewModel>();
+
+            _messenger.Register<NavigationMessage>(this, message =>
+            {
+                CurrentView = message.ViewModelType;
+            });
+        }
+
+        private ViewModelBase _dropDownView;
+        public ViewModelBase DropDownView
+        {
+            get => _dropDownView;
+            set
+            {
+                Set(ref _dropDownView, value);
+            }
+        }
+
+
+        public RelayCommand MenuLeftButton
+        {
+            get => new(() =>
+            {
+                if (DropDownView == null)
+                {
+                    DropDownView = App.Container.GetInstance<MenuLeftViewModel>();
+                }
+                else
+                {
+                    DropDownView = null;
+                }
+            });
+        }
+
+        public RelayCommand Download
+        {
+            get => new(() =>
+            {
+            });
+        }
+
     }
-
-
-
 }
+

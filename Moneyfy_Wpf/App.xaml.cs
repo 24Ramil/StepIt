@@ -1,36 +1,38 @@
-﻿using Moneyfy_ProjectWork.ViewModels;
+﻿using GalaSoft.MvvmLight.Messaging;
+using MonefyApp.Service.Classes;
+using MonefyApp.Service.Interfaces;
+using MonefyApp.View;
+using MonefyApp.ViewModels;
+using SimpleInjector;
 using System;
 using System.Collections.Generic;
-using SimpleInjector;
 using System.Configuration;
 using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
-using GalaSoft.MvvmLight.Messaging;
-using Moneyfy_ProjectWork.Views;
-using Moneyfy_ProjectWork.Service.Interfaces;
-using Moneyfy_ProjectWork.Service.Classes;
 
-namespace Moneyfy_ProjectWork
+namespace MonefyApp
 {
+
     public partial class App : Application
     {
-        public static Container Container { get; set; } = new Container();
 
+        public static Container Container { get; set; } = new Container();
 
         public void Register()
         {
             Container.RegisterSingleton<IMessenger, Messenger>();
             Container.RegisterSingleton<INavigationService, NavigationService>();
             Container.RegisterSingleton<IDataService, DataService>();
-            //Container.RegisterSingleton<IChart, ChartService>();
+            Container.RegisterSingleton<IJsonService, JsonService>();
+            Container.RegisterSingleton<CalculatorViewModel>();
+            Container.RegisterSingleton<MainWindowModel>();
+            Container.RegisterSingleton<DiagramViewModel>();
+            Container.RegisterSingleton<MenuLeftViewModel>();
+            Container.RegisterSingleton<NavigationService>();
 
-
-            Container.RegisterSingleton<MainViewModel>();
-            Container.RegisterSingleton<PieChartViewModel>();
-            Container.RegisterSingleton<IncomeViewModel>();
-            Container.RegisterSingleton<ExpenceViewModel>();
+            Container.Verify();
 
         }
 
@@ -38,14 +40,10 @@ namespace Moneyfy_ProjectWork
         {
             Register();
 
-            MainView window = new();
+            MainWindow window = new();
 
-            window.DataContext = Container.GetInstance<MainViewModel>();
-
+            window.DataContext = App.Container.GetInstance<MainWindowModel>();
             window.ShowDialog();
         }
-
-
     }
-
 }

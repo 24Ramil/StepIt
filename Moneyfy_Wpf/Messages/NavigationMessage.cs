@@ -5,11 +5,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Moneyfy_ProjectWork.Messages
+namespace MonefyApp.Messages
 {
-    public class NavigationMessage
+    class NavigationMessage
     {
-        public Type Data { get; set; }
         public ViewModelBase ViewModelType { get; set; }
     }
 }

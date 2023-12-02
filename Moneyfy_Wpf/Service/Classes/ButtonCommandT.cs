@@ -1,16 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Input;
 
 namespace MonefyApp.Service.Classes
 {
-    class ButtonCommand : ICommand
+    class ButtonCommand<T> : ICommand
     {
-        private readonly Action _funcToExecute;
-        private readonly Func<bool> _funcToCheck = () => true;
+        private readonly Action<T> _funcToExecute;
+        private readonly Func<T, bool> _funcToCheck = _ => true;
 
         public event EventHandler? CanExecuteChanged
         {
@@ -18,13 +14,12 @@ namespace MonefyApp.Service.Classes
             remove { CommandManager.RequerySuggested -= value; }
         }
 
-        public ButtonCommand(Action funcToExecute)
+        public ButtonCommand(Action<T> funcToExecute)
         {
             _funcToExecute = funcToExecute;
         }
 
-
-        public ButtonCommand(Action funcToExecute, Func<bool> funcToCheck)
+        public ButtonCommand(Action<T> funcToExecute, Func<T, bool> funcToCheck)
         {
             _funcToExecute = funcToExecute;
             _funcToCheck = funcToCheck;
@@ -32,12 +27,12 @@ namespace MonefyApp.Service.Classes
 
         public bool CanExecute(object? parameter)
         {
-            return _funcToCheck();
+            return _funcToCheck((T)parameter!);
         }
 
         public void Execute(object? parameter)
         {
-            _funcToExecute();
+            _funcToExecute((T)parameter!);
         }
     }
 }
