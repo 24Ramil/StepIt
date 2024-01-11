@@ -1,0 +1,6 @@
+{
+  "ConnectionStrings": {
+    "Default": "Data Source=STHQ011A-04;Initial Catalog=MyDataBase;User ID=admin;Password=admin;Connect Timeout=30;Encrypt=False;"
+  }
+
+}
